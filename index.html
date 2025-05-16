@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Marketplace Katalog Mainan Anak</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+
+  * {
+    box-sizing: border-box;
+  }
+
+  body {
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    background: #f5f7fa;
+    color: #212121;
+  }
+
+  header {
+    background: #1e88e5;
+    color: white;
+    padding: 1rem 2rem;
+    text-align: center;
+    font-weight: 600;
+    font-size: 1.8rem;
+    letter-spacing: 1.2px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.15);
+    user-select: none;
+  }
+
+  nav.filter-bar {
+    margin: 1rem auto;
+    max-width: 1200px;
+    padding: 0 1rem;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+
+  button.filter-btn {
+    background-color: #e3eafc;
+    border: 2px solid transparent;
+    color: #1e88e5;
+    font-weight: 600;
+    font-size: 1rem;
+    padding: 0.5rem 1.4rem;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 3px 6px rgba(30,136,229,0.2);
+    user-select: none;
+  }
+  button.filter-btn:hover,
+  button.filter-btn.active {
+    background-color: #1e88e5;
+    color: white;
+    box-shadow: 0 6px 15px rgba(30,136,229,0.5);
+    border-color: #1661b1;
+  }
+
+  main.catalog {
+    max-width: 1200px;
+    margin: 0 auto 3rem;
+    padding: 0 1rem;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.4rem;
+  }
+
+  article.product-card {
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgb(0 0 0 / 0.1);
+    display: flex;
+    flex-direction: column;
+    cursor: pointer;
+    transition: box-shadow 0.3s ease;
+  }
+
+  article.product-card:hover {
+    box-shadow: 0 8px 20px rgb(0 0 0 / 0.2);
+  }
+
+  .product-image {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    overflow: hidden;
+    border-top-left-radius: 12px;
+    border-top-right-radius: 12px;
+  }
+
+  .product-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+  }
+
+  article.product-card:hover .product-image img {
+    transform: scale(1.1);
+  }
+
+  .product-info {
+    padding: 0.8rem 1rem 1.2rem;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  .product-name {
+    font-weight: 600;
+    font-size: 1.1rem;
+    margin-bottom: 0.3rem;
+    color: #222;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+  }
+
+  .product-seller {
+    font-size: 0.85rem;
+    color: #777;
+    margin-bottom: 0.7rem;
+  }
+
+  .product-price {
+    font-weight: 700;
+    font-size: 1.2rem;
+    color: #1e88e5;
+  }
+
+  /* Responsive */
+  @media (max-width: 1024px) {
+    main.catalog {
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1rem;
+    }
+  }
+  @media (max-width: 720px) {
+    main.catalog {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 0.9rem;
+    }
+  }
+  @media (max-width: 420px) {
+    main.catalog {
+      grid-template-columns: 1fr;
+      max-width: 90vw;
+    }
+  }
+</style>
+</head>
+<body>
+<header>Marketplace Katalog Mainan Anak</header>
+
+<nav class="filter-bar" aria-label="Filter mainan berdasarkan kategori">
+  <button class="filter-btn active" data-filter="all" aria-pressed="true">Semua</button>
+  <button class="filter-btn" data-filter="educational" aria-pressed="false">Edukasi</button>
+  <button class="filter-btn" data-filter="outdoor" aria-pressed="false">Outdoor</button>
+  <button class="filter-btn" data-filter="electronic" aria-pressed="false">Elektronik</button>
+  <button class="filter-btn" data-filter="stuffed" aria-pressed="false">Boneka</button>
+</nav>
+
+<main class="catalog" aria-live="polite">
+  <article class="product-card" data-category="educational" tabindex="0">
+    <div class="product-image">
+      <img src="https://drive.google.com/thumbnail?id=1Px7LRV69vBQka3DaXjoL7WEsyGSw6Ry_" width="1080" height="1080" alt="Puzzle edukasi bentuk angka" loading="lazy" />
+    </div>
+    <div class="product-info">
+      <div class="product-name">Puzzle Angka</div>
+      <div class="product-seller">Penjual: Dunia Mainan</div>
+      <div class="product-price">Rp150.000</div>
+    </div>
+  </article>
+
+  <article class="product-card" data-category="outdoor" tabindex="0">
+    <div class="product-image">
+      <img src="https://images.unsplash.com/photo-1563201519-908d131819e8?auto=format&fit=crop&w=600&q=80" alt="Bola plastik bermain outdoor" loading="lazy" />
+    </div>
+    <div class="product-info">
+      <div class="product-name">Bola Plastik</div>
+      <div class="product-seller">Penjual: Sports Kid</div>
+      <div class="product-price">Rp85.000</div>
+    </div>
+  </article>
+
+  <article class="product-card" data-category="electronic" tabindex="0">
+    <div class="product-image">
+      <img src="https://images.unsplash.com/photo-1585790868976-cb1928a3110a?auto=format&fit=crop&w=600&q=80" alt="Mainan robot elektronik" loading="lazy" />
+    </div>
+    <div class="product-info">
+      <div class="product-name">Robot Elektronik</div>
+      <div class="product-seller">Penjual: Tech Toys</div>
+      <div class="product-price">Rp430.000</div>
+    </div>
+  </article>
+
+  <article class="product-card" data-category="stuffed" tabindex="0">
+    <div class="product-image">
+      <img src="https://images.unsplash.com/photo-1565120130295-803d46a82716?auto=format&fit=crop&w=600&q=80" alt="Boneka beruang lucu" loading="lazy" />
+    </div>
+    <div class="product-info">
+      <div class="product-name">Boneka Beruang</div>
+      <div class="product-seller">Penjual: Cute Plush</div>
+      <div class="product-price">Rp220.000</div>
+    </div>
+  </article>
+
+  <article class="product-card" data-category="educational" tabindex="0">
+    <div class="product-image">
+      <img src="https://images.unsplash.com/photo-1590080877777-b1f1f12a3ac5?auto=format&fit=crop&w=600&q=80" alt="Buku cerita edukasi anak" loading="lazy" />
+    </div>
+    <div class="product-info">
+      <div class="product-name">Buku Cerita</div>
+      <div class="product-seller">Penjual: Buku Anak</div>
+      <div class="product-price">Rp120.000</div>
+    </div>
+  </article>
+
+  <article class="product-card" data-category="outdoor" tabindex="0">
+    <div class="product-image">
+      <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=600&q=80" alt="Trampolin outdoor untuk anak" loading="lazy" />
+    </div>
+    <div class="product-info">
+      <div class="product-name">Trampolin</div>
+      <div class="product-seller">Penjual: Outdoor Kids</div>
+      <div class="product-price">Rp600.000</div>
+    </div>
+  </article>
+
+  <article class="product-card" data-category="electronic" tabindex="0">
+    <div class="product-image">
+      <img src="https://images.unsplash.com/photo-1610285853737-43fac219b1b2?auto=format&fit=crop&w=600&q=80" alt="Mobil remot kontrol" loading="lazy" />
+    </div>
+    <div class="product-info">
+      <div class="product-name">Mobil Remote</div>
+      <div class="product-seller">Penjual: Tech Toys</div>
+      <div class="product-price">Rp350.000</div>
+    </div>
+  </article>
+
+  <article class="product-card" data-category="stuffed" tabindex="0">
+    <div class="product-image">
+      <img src="https://images.unsplash.com/photo-1477332552946-cfb384aeaf1c?auto=format&fit=crop&w=600&q=80" alt="Boneka kelinci putih" loading="lazy" />
+    </div>
+    <div class="product-info">
+      <div class="product-name">Boneka Kelinci</div>
+      <div class="product-seller">Penjual: Cute Plush</div>
+      <div class="product-price">Rp210.000</div>
+    </div>
+  </article>
+</main>
+
+<script>
+  const filterBtns = document.querySelectorAll('button.filter-btn');
+  const productCards = document.querySelectorAll('.product-card');
+
+  filterBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      // toggle active button styling and aria-pressed
+      filterBtns.forEach(b => {
+        b.classList.remove('active');
+        b.setAttribute('aria-pressed', 'false');
+      });
+      btn.classList.add('active');
+      btn.setAttribute('aria-pressed', 'true');
+
+      const filter = btn.getAttribute('data-filter');
+      productCards.forEach(card => {
+        if(filter === 'all' || card.getAttribute('data-category') === filter){
+          card.style.display = 'flex';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    });
+  });
+</script>
+</body>
+</html>
